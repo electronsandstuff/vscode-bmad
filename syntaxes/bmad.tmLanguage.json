@@ -17,6 +17,9 @@
 			"include": "#assignments"
 		},
 		{
+			"include": "#lineDefinition"
+		},
+		{
 			"match": "^\\s*!.*$",
 			"name": "comment.line.exclamation.myLanguage"
 		},
@@ -74,8 +77,44 @@
 				]
 			  }
 			}
+		  },
+		  "element-names": {
+			"patterns": [
+			  {
+				"name": "variable.element.name.bmad",
+				"match": "(?i)\\b[A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##)\\b"
+			  }
+			]
+		  },
+		  "lineDefinition": {
+			"begin": "(?i)\\b([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*(line)\\s*(=)\\s*\\(",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.element.name.bmad"
+				},
+				  "2": {
+					"name": "keyword.control.lineKeyword.bmad"
+				  },
+				  "3": {
+					"name": "keyword.operator.assignment.bmad"
+				  }
+			},
+			"end": "\\)",
+			"endCaptures": {
+			  "0": {
+				"name": "punctuation.definition.group.end.bmad"
+			  }
+			},
+			"patterns": [
+			  {
+				"include": "#element-names"
+			  },
+			  {
+				"name": "punctuation.separator.element.bmad",
+				"match": ","
+			  }
+			]
 		  }
-		  
 	},
 	"scopeName": "source.bmad"
 }
