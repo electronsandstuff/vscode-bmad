@@ -24,6 +24,9 @@
 		{
 			"include": "#elementDefinition"
 		},
+		{
+			"include": "#useStatements"
+		},
 		  {
 			"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
 			"name": "constant.numeric.myLanguage"
@@ -178,6 +181,18 @@
 				"match": "\\s*,\\s*"
 			  }
 			]
+		  },
+		  "useStatements": {
+			"name": "meta.use-statement.bmad",
+			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*$",
+			"captures": {
+			  "1": {
+				"name": "keyword.control.use.bmad"
+			  },
+			  "2": {
+				"name": "variable.element.name.bmad"
+			  }
+			}
 		  }
 	},
 	"scopeName": "source.bmad"
