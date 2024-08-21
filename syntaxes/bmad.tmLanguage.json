@@ -27,189 +27,189 @@
 		{
 			"include": "#useStatements"
 		},
-		  {
+		{
 			"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
 			"name": "constant.numeric.myLanguage"
-		  },
-		  {
+		},
+		{
 			"match": "\\b(T|F)\\b",
 			"name": "constant.language.boolean.myLanguage"
-		  }				  
+		}
 	],
 	"repository": {
-		"strings": {
-			"name": "string.quoted.double.bmad",
-			"begin": "\"",
-			"end": "\"",
+		"assignments": {
+			"captures": {
+				"1": {
+					"name": "punctuation.whitespace.leading.bmad"
+				},
+				"2": {
+					"name": "variable.element.name.bmad"
+				},
+				"3": {
+					"name": "variable.parameter.brackets.bmad"
+				},
+				"4": {
+					"name": "variable.parameter.attribute.bmad"
+				},
+				"5": {
+					"patterns": [
+						{
+							"match": "\"[^\"]*\"",
+							"name": "string.quoted.double.bmad"
+						},
+						{
+							"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
+							"name": "constant.numeric.bmad"
+						},
+						{
+							"match": "\\bT\\b|\\bF\\b",
+							"name": "constant.language.boolean.bmad"
+						}
+					]
+				}
+			},
+			"match": "(?i)^(\\s*)([A-Za-z][A-Za-z0-9._\\#\\\\]*[A-Za-z0-9]?(?<!##))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*=\\s*(\"[^\"]*\"|[^\\s]+)\\s*$",
+			"name": "variable.assignment.element.bmad"
+		},
+		"attributeAssignments": {
+			"captures": {
+				"1": {
+					"name": "variable.parameter.name.bmad"
+				},
+				"2": {
+					"name": "variable.parameter.value.bmad"
+				}
+			},
+			"match": "(?i)\\b([A-Za-z_][A-Za-z0-9_-]*)\\b\\s*=\\s*([^,\\n!]+)",
+			"name": "variable.parameter.assignment.bmad"
+		},
+		"callStatements": {
+			"captures": {
+				"1": {
+					"name": "keyword.control.call.bmad"
+				},
+				"2": {
+					"name": "keyword.control.file.bmad"
+				},
+				"3": {
+					"name": "string.unquoted.filepath.bmad"
+				},
+				"4": {
+					"name": "comment.line.exclamation.bmad",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			},
+			"match": "(?i)^\\s*(call)\\s*,\\s*(file)\\s*=\\s*([\\w./\\\\-]+)\\s*(\\s*(!.*)?$)",
+			"name": "meta.call-statement.bmad"
+		},
+		"comments": {
+			"match": "\\s*!.*",
+			"name": "comment.line.exclamation.myLanguage"
+		},
+		"element-names": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.bmad",
-					"match": "\\\\."
+					"match": "(?i)\\b[A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##)\\b",
+					"name": "variable.element.name.bmad"
 				}
 			]
 		},
-		"assignments": {
-			"name": "variable.assignment.element.bmad",
-			"match": "(?i)^(\\s*)([A-Za-z][A-Za-z0-9._\\#\\\\]*[A-Za-z0-9]?(?<!##))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*=\\s*(\"[^\"]*\"|[^\\s]+)\\s*$",
-			"captures": {
-			  "1": {
-				"name": "punctuation.whitespace.leading.bmad"
-			  },
-			  "2": {
-				"name": "variable.element.name.bmad"
-			  },
-			  "3": {
-				"name": "variable.parameter.brackets.bmad"
-			  },
-			  "4": {
-				"name": "variable.parameter.attribute.bmad"
-			  },
-			  "5": {
-				"patterns": [
-				  {
-					"match": "\"[^\"]*\"",
-					"name": "string.quoted.double.bmad"
-				  },
-				  {
-					"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
-					"name": "constant.numeric.bmad"
-				  },
-				  {
-					"match": "\\bT\\b|\\bF\\b",
-					"name": "constant.language.boolean.bmad"
-				  }
-				]
-			  }
-			}
-		  },
-		  "element-names": {
+		"elementDefinition": {
+			"begin": "(?i)^\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.element.name.bmad"
+				},
+				"2": {
+					"name": "keyword.control.elementType.bmad"
+				}
+			},
+			"end": "(?<![\\s,])\\s*$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.terminator.end-of-statement.bmad"
+				}
+			},
 			"patterns": [
-			  {
-				"name": "variable.element.name.bmad",
-				"match": "(?i)\\b[A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##)\\b"
-			  }
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#attributeAssignments"
+				},
+				{
+					"match": "\\s*,\\s*",
+					"name": "punctuation.separator.parameter.bmad"
+				}
 			]
-		  },
-		  "lineDefinition": {
+		},
+		"lineDefinition": {
 			"begin": "(?i)\\b([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*(line)\\s*(=)\\s*\\(",
 			"beginCaptures": {
 				"1": {
 					"name": "variable.element.name.bmad"
 				},
-				  "2": {
+				"2": {
 					"name": "keyword.control.lineKeyword.bmad"
-				  },
-				  "3": {
+				},
+				"3": {
 					"name": "keyword.operator.assignment.bmad"
-				  }
+				}
 			},
 			"end": "\\)",
 			"endCaptures": {
-			  "0": {
-				"name": "punctuation.definition.group.end.bmad"
-			  }
+				"0": {
+					"name": "punctuation.definition.group.end.bmad"
+				}
 			},
 			"patterns": [
-			  {
-				"include": "#element-names"
-			  },
-			  {
-				"name": "punctuation.separator.element.bmad",
-				"match": ","
-			  }
+				{
+					"include": "#element-names"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.element.bmad"
+				}
 			]
-		  },
-		"comments": {
-			"match": "\\s*!.*",
-			"name": "comment.line.exclamation.myLanguage"
 		},
-		"attributeAssignments": {
-			"name": "variable.parameter.assignment.bmad",
-			"match": "(?i)\\b([A-Za-z_][A-Za-z0-9_-]*)\\b\\s*=\\s*([^,\\n!]+)",
-			"captures": {
-			  "1": {
-				"name": "variable.parameter.name.bmad"
-			  },
-			  "2": {
-				"name": "variable.parameter.value.bmad"
-			  }
-			}
-		  },
-		  "callStatements": {
-			"name": "meta.call-statement.bmad",
-			"match": "(?i)^\\s*(call)\\s*,\\s*(file)\\s*=\\s*([\\w./\\\\-]+)\\s*(\\s*(!.*)?$)",
-			"captures": {
-			  "1": {
-				"name": "keyword.control.call.bmad"
-			  },
-			  "2": {
-				"name": "keyword.control.file.bmad"
-			  },
-			  "3": {
-				"name": "string.unquoted.filepath.bmad"
-			  },
-			  "4": {
-				"name": "comment.line.exclamation.bmad",
-				"patterns": [
-				  {
-					"include": "#comments"
-				  }
-				]			  
-			}
-			}
-		  },				
-		  "elementDefinition": {
-			"begin": "(?i)^\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
-			"beginCaptures": {
-			  "1": {
-				"name": "variable.element.name.bmad"
-			  },
-			  "2": {
-				"name": "keyword.control.elementType.bmad"
-			  }
-			},
-			"end": "(?<![\\s,])\\s*$",
-			"endCaptures": {
-			  "0": {
-				"name": "punctuation.terminator.end-of-statement.bmad"
-			  }
-			},
+		"strings": {
+			"begin": "\"",
+			"end": "\"",
+			"name": "string.quoted.double.bmad",
 			"patterns": [
-			  {
-				"include": "#strings"
-			  },
-			  {
-				"include": "#comments"
-			  },
-			  {
-				"include": "#attributeAssignments"
-			  },
-			  {
-				"name": "punctuation.separator.parameter.bmad",
-				"match": "\\s*,\\s*"
-			  }
+				{
+					"match": "\\\\.",
+					"name": "constant.character.escape.bmad"
+				}
 			]
-		  },
-		  "useStatements": {
-			"name": "meta.use-statement.bmad",
-			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\s*(!.*)?$)",
+		},
+		"useStatements": {
 			"captures": {
-			  "1": {
-				"name": "keyword.control.use.bmad"
-			  },
-			  "2": {
-				"name": "variable.element.name.bmad"
-			  },
-			  "3": {
-				"name": "comment.line.exclamation.bmad",
-				"patterns": [
-				  {
-					"include": "#comments"
-				  }
-				]			  
-			}
-			}
-		  }
+				"1": {
+					"name": "keyword.control.use.bmad"
+				},
+				"2": {
+					"name": "variable.element.name.bmad"
+				},
+				"3": {
+					"name": "comment.line.exclamation.bmad",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			},
+			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\s*(!.*)?$)",
+			"name": "meta.use-statement.bmad"
+		}
 	},
 	"scopeName": "source.bmad"
 }
