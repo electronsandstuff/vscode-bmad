@@ -3,8 +3,7 @@
 	"name": "Bmad",
 	"patterns": [
 		{
-			"match": "\\b(call|file|parameter|use|line|fork)\\b",
-			"name": "keyword.control.myLanguage"
+			"include": "#comments"
 		},
 		{
 			"match": "\\b(sub/[\\w/\\.]+)\\b",
@@ -20,8 +19,7 @@
 			"include": "#lineDefinition"
 		},
 		{
-			"match": "^\\s*!.*$",
-			"name": "comment.line.exclamation.myLanguage"
+			"include": "#elementDefinition"
 		},
 		  {
 			"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
@@ -112,6 +110,54 @@
 			  {
 				"name": "punctuation.separator.element.bmad",
 				"match": ","
+			  }
+			]
+		  },
+		"comments": {
+			"match": "\\s*!.*",
+			"name": "comment.line.exclamation.myLanguage"
+		},
+		"attributeAssignments": {
+			"name": "variable.parameter.assignment.bmad",
+			"match": "(?i)\\b([A-Za-z_][A-Za-z0-9_-]*)\\b\\s*=\\s*([^,\\n!]+)",
+			"captures": {
+			  "1": {
+				"name": "variable.parameter.name.bmad"
+			  },
+			  "2": {
+				"name": "variable.parameter.value.bmad"
+			  }
+			}
+		  },		  
+		  "elementDefinition": {
+			"begin": "(?i)^\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
+			"beginCaptures": {
+			  "1": {
+				"name": "variable.element.name.bmad"
+			  },
+			  "2": {
+				"name": "keyword.control.elementType.bmad"
+			  }
+			},
+			"end": "(?<![\\s,])\\s*$",
+			"endCaptures": {
+			  "0": {
+				"name": "punctuation.terminator.end-of-statement.bmad"
+			  }
+			},
+			"patterns": [
+			  {
+				"include": "#strings"
+			  },
+			  {
+				"include": "#comments"
+			  },
+			  {
+				"include": "#attributeAssignments"
+			  },
+			  {
+				"name": "punctuation.separator.parameter.bmad",
+				"match": "\\s*,\\s*"
 			  }
 			]
 		  }
