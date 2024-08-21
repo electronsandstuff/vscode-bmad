@@ -137,7 +137,7 @@
 		  },
 		  "callStatements": {
 			"name": "meta.call-statement.bmad",
-			"match": "(?i)^\\s*(call)\\s*,\\s*(file)\\s*=\\s*([\\w./\\\\-]+)\\s*$",
+			"match": "(?i)^\\s*(call)\\s*,\\s*(file)\\s*=\\s*([\\w./\\\\-]+)\\s*(\\s*(!.*)?$)",
 			"captures": {
 			  "1": {
 				"name": "keyword.control.call.bmad"
@@ -147,7 +147,15 @@
 			  },
 			  "3": {
 				"name": "string.unquoted.filepath.bmad"
-			  }
+			  },
+			  "4": {
+				"name": "comment.line.exclamation.bmad",
+				"patterns": [
+				  {
+					"include": "#comments"
+				  }
+				]			  
+			}
 			}
 		  },				
 		  "elementDefinition": {
@@ -184,14 +192,22 @@
 		  },
 		  "useStatements": {
 			"name": "meta.use-statement.bmad",
-			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*$",
+			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\s*(!.*)?$)",
 			"captures": {
 			  "1": {
 				"name": "keyword.control.use.bmad"
 			  },
 			  "2": {
 				"name": "variable.element.name.bmad"
-			  }
+			  },
+			  "3": {
+				"name": "comment.line.exclamation.bmad",
+				"patterns": [
+				  {
+					"include": "#comments"
+				  }
+				]			  
+			}
 			}
 		  }
 	},
