@@ -19,6 +19,9 @@
 			"include": "#lineDefinition"
 		},
 		{
+			"include": "#callStatements"
+		},
+		{
 			"include": "#elementDefinition"
 		},
 		  {
@@ -128,7 +131,22 @@
 				"name": "variable.parameter.value.bmad"
 			  }
 			}
-		  },		  
+		  },
+		  "callStatements": {
+			"name": "meta.call-statement.bmad",
+			"match": "(?i)^\\s*(call)\\s*,\\s*(file)\\s*=\\s*([\\w./\\\\-]+)\\s*$",
+			"captures": {
+			  "1": {
+				"name": "keyword.control.call.bmad"
+			  },
+			  "2": {
+				"name": "keyword.control.file.bmad"
+			  },
+			  "3": {
+				"name": "string.unquoted.filepath.bmad"
+			  }
+			}
+		  },				
 		  "elementDefinition": {
 			"begin": "(?i)^\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
 			"beginCaptures": {
