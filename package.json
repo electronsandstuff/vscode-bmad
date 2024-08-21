@@ -1,0 +1,25 @@
+{
+  "name": "bmad",
+  "displayName": "Bmad",
+  "description": "Bmad and tao language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "bmad",
+      "aliases": ["Bmad", "bmad"],
+      "extensions": [".bmad"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "bmad",
+      "scopeName": "source.bmad",
+      "path": "./syntaxes/bmad.tmLanguage.json"
+    }]
+  }
+}
