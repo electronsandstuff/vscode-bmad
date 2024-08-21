@@ -47,7 +47,7 @@
 		},
 		"assignments": {
 			"name": "variable.assignment.element.bmad",
-			"match": "(?i)^(\\s*)([A-Za-z0-9._-]+)(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*=\\s*([^\\s]+)$",
+			"match": "(?i)^(\\s*)([A-Za-z][A-Za-z0-9._\\#\\\\]*[A-Za-z0-9]?(?<!##))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*=\\s*(\"[^\"]*\"|[^\\s]+)\\s*$",
 			"captures": {
 			  "1": {
 				"name": "punctuation.whitespace.leading.bmad"
