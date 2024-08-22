@@ -32,11 +32,21 @@
 			"name": "constant.numeric.myLanguage"
 		},
 		{
-			"match": "\\b(T|F)\\b",
-			"name": "constant.language.boolean.myLanguage"
+			"include": "#numbers"
+		},
+		{
+			"include": "#mathOperators"
 		}
 	],
 	"repository": {
+		"numbers": {
+			"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
+			"name": "constant.numeric.myLanguage"
+		},
+		"mathOperators": {
+			"name": "keyword.operator.math.bmad",
+			"match": "[+\\-*/^]"
+		},
 		"assignments": {
 			"captures": {
 				"1": {
@@ -151,7 +161,7 @@
 			]
 		},
 		"lineDefinition": {
-			"begin": "(?i)\\b([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*(line)\\s*(=)\\s*\\(",
+			"begin": "(?i)\\s*\\b([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*(line)\\s*(=)\\s*\\(",
 			"beginCaptures": {
 				"1": {
 					"name": "variable.element.name.bmad"
@@ -170,6 +180,15 @@
 				}
 			},
 			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#mathOperators"
+				},
 				{
 					"include": "#element-names"
 				},
