@@ -1,3 +1,35 @@
+
+!---------------------------------------------------------
+! Element Name Tests
+
+! Test element name with valid characters and length
+valid_element_1_name1234567890.valid#1: marker ! Length: 40 characters, uses all allowed symbols
+
+! Test element name with maximum length
+element_name_with_maximum_length_check1234567890: marker ! Length: 40 characters
+
+! Test element name with a backslash (avoid using, but allowed)
+element_name_with_backslash\: marker ! Contains backslash
+
+! Test element name with a period (avoid using, but allowed)
+element_name.with.period: marker ! Contains period
+
+! Test element name with a hash mark (avoid using, but allowed)
+element_name_with_hash#: marker ! Contains hash mark
+
+! Test element name with a combination of backslash, period, and hash mark (avoid using, but allowed)
+element\name.with#all: marker ! Combination of backslash, period, and hash mark
+
+! Invalid test: Element name starting with a digit
+1_invalid_element_name: marker ! Starts with a digit, should not be allowed
+
+! Invalid test: Element name containing double hash marks
+invalid_element##name: marker ! Contains double hash marks, should not be allowed
+
+! Invalid test: Element name with a reserved keyword
+use: marker ! Reserved keyword, should not be allowed
+
+
 !---------------------------------------------------------
 ! Attribute Assignment
 *[aperture] = 0.0 ! Match all elements.
