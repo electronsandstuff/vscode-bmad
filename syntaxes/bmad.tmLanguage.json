@@ -566,7 +566,7 @@
 					"include": "#comments"
 				},
 				{
-					"match": "(?i)(?!.*\\b(file|filename)\\b)[^!\\n]+",
+					"match": "(?i)(?!\\s|=)(?!.*\\b(file|filename)\\b)[^!\\n]+",
 					"name": "string.unquoted.filename.bmad"
 				},
 				{
