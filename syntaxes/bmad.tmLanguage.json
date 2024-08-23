@@ -145,7 +145,7 @@
 			"match": "\\s*!.*",
 			"name": "comment.line.exclamation.myLanguage"
 		},
-		"element-names": {
+		"elementNames": {
 			"patterns": [
 				{
 					"match": "(?i)\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##)",
@@ -198,7 +198,7 @@
 				"2": {
 					"patterns": [
 						{
-							"include": "#element-names"
+							"include": "#elementNames"
 						},
 						{
 							"match": ",",
@@ -230,7 +230,7 @@
 					"include": "#mathOperators"
 				},
 				{
-					"include": "#element-names"
+					"include": "#elementNames"
 				},
 				{
 					"match": ",",
