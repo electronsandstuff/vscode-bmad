@@ -41,73 +41,7 @@
 			"include": "#mathOperators"
 		},
 		{
-            "include": "#keywordBeam"
-        },
-        {
-            "include": "#keywordBeginning"
-        },
-        {
-            "include": "#keywordCalcReferenceOrbit"
-        },
-        {
-            "include": "#keywordCall"
-        },
-        {
-            "include": "#keywordCombineConsecutiveElements"
-        },
-        {
-            "include": "#keywordDebugMarker"
-        },
-        {
-            "include": "#keywordEndFile"
-        },
-        {
-            "include": "#keywordExpandLattice"
-        },
-        {
-            "include": "#keywordMergeElements"
-        },
-        {
-            "include": "#keywordNoDigested"
-        },
-        {
-            "include": "#keywordNoSuperimpose"
-        },
-        {
-            "include": "#keywordParameter"
-        },
-        {
-            "include": "#keywordParserDebug"
-        },
-        {
-            "include": "#keywordParticleStart"
-        },
-        {
-            "include": "#keywordRedef"
-        },
-        {
-            "include": "#keywordRemoveElements"
-        },
-        {
-            "include": "#keywordReturn"
-        },
-        {
-            "include": "#keywordRoot"
-        },
-        {
-            "include": "#keywordSliceLattice"
-        },
-        {
-            "include": "#keywordStartBranchAt"
-        },
-        {
-            "include": "#keywordSuperimpose"
-        },
-        {
-            "include": "#keywordUseLocalLatFile"
-        },
-        {
-            "include": "#keywordWriteDigested"
+            "include": "#bmadKeywords"
         },
 		{
             "include": "#speciesAntiDeuteron"
@@ -489,97 +423,101 @@
                 }
             ]
         },
-		"keywordBeam": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bbeam\\b"
-        },
-        "keywordBeginning": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bbeginning\\b"
-        },
-        "keywordCalcReferenceOrbit": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bcalc_reference_orbit\\b"
-        },
-        "keywordCall": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bcall\\b"
-        },
-        "keywordCombineConsecutiveElements": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bcombine_consecutive_elements\\b"
-        },
-        "keywordDebugMarker": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bdebug_marker\\b"
-        },
-        "keywordEndFile": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bend_file\\b"
-        },
-        "keywordExpandLattice": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bexpand_lattice\\b"
-        },
-        "keywordMergeElements": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bmerge_elements\\b"
-        },
-        "keywordNoDigested": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bno_digested\\b"
-        },
-        "keywordNoSuperimpose": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bno_superimpose\\b"
-        },
-        "keywordParameter": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bparameter\\b"
-        },
-        "keywordParserDebug": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bparser_debug\\b"
-        },
-        "keywordParticleStart": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bparticle_start\\b"
-        },
-        "keywordRedef": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bredef\\b"
-        },
-        "keywordRemoveElements": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bremove_elements\\b"
-        },
-        "keywordReturn": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\breturn\\b"
-        },
-        "keywordRoot": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\broot\\b"
-        },
-        "keywordSliceLattice": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bslice_lattice\\b"
-        },
-        "keywordStartBranchAt": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bstart_branch_at\\b"
-        },
-        "keywordSuperimpose": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bsuperimpose\\b"
-        },
-        "keywordUseLocalLatFile": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\buse_local_lat_file\\b"
-        },
-        "keywordWriteDigested": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bwrite_digested\\b"
+        "bmadKeywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bbeam\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bbeginning\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bcalc_reference_orbit\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bcall\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bcombine_consecutive_elements\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bdebug_marker\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bend_file\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bexpand_lattice\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bmerge_elements\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bno_digested\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bno_superimpose\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bparameter\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bparser_debug\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bparticle_start\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bredef\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bremove_elements\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\breturn\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\broot\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bslice_lattice\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bstart_branch_at\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bsuperimpose\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\buse_local_lat_file\\b"
+                },
+                {
+                    "name": "keyword.control.bmad",
+                    "match": "(?i)\\bwrite_digested\\b"
+                }
+            ]
         },
 		"speciesAntiDeuteron": {
             "name": "constant.language.species.bmad",
