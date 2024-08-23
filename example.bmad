@@ -45,8 +45,8 @@ parameter[e_tot] = 6e6                 ! A comment at the end of the assignment
 Q%1[k1] = 12.1
 qua01[gradient] =   42.0e2 * 3.0 / jio[l]
 qua02[gradient] =   42.0e2 * (2 - 0.35)
-quadrupole::*[k1] =2.2
-quadrupole::c0%[k1]
+quadrupole::*[k1] = 2.2
+quadrupole::c0%[k1] = 3.15
 quadrupole::QUA*[k1] = 12.1
 s%z[k2] = %[k2] + 10 * ran_gauss()
 
