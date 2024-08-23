@@ -290,6 +290,9 @@
 						},
 						{
 							"include": "#comments"
+						},
+						{
+							"include": "#mathOperators"
 						}
 					]
 				}
