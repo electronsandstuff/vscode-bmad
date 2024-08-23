@@ -83,9 +83,6 @@
             "include": "#keywordParticleStart"
         },
         {
-            "include": "#keywordPrint"
-        },
-        {
             "include": "#keywordRedef"
         },
         {
@@ -249,7 +246,10 @@
         },
         {
             "include": "#constantTwopi"
-        }
+        },
+		{
+			"include": "#printStatement"
+		}
 	],
 	"repository": {
 		"numbers": {
@@ -538,10 +538,6 @@
             "name": "keyword.control.bmad",
             "match": "(?i)\\bparticle_start\\b"
         },
-        "keywordPrint": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bprint\\b"
-        },
         "keywordRedef": {
             "name": "keyword.control.bmad",
             "match": "(?i)\\bredef\\b"
@@ -761,6 +757,25 @@
         "constantTwopi": {
             "name": "constant.numeric.bmad",
             "match": "(?i)\\btwopi\\b"
+        },
+		"printStatement": {
+            "name": "meta.print-statement.bmad",
+            "begin": "(?i)^\\s*(print)\\b",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.print.bmad"
+                }
+            },
+            "end": "(?=$)",
+            "patterns": [
+                {
+                    "match": "[^!\\n]+",
+                    "name": "string.unquoted.print.bmad"
+                },
+				{
+					"include": "#comments"
+				}
+            ]
         }
 	},
 	"scopeName": "source.bmad"

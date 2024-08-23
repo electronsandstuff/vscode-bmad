@@ -218,7 +218,7 @@ tanh(x)
 
 !---------------------------------------------------------
 ! Print statement
-print I am a print statement
+print I am a print statement  ! A comment
 
 !---------------------------------------------------------
 ! Element Types
