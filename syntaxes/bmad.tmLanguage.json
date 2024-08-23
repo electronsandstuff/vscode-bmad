@@ -80,9 +80,6 @@
             "include": "#keywordParticleStart"
         },
         {
-            "include": "#keywordPi"
-        },
-        {
             "include": "#keywordPrint"
         },
         {
@@ -165,6 +162,96 @@
         },
         {
             "include": "#speciesProton"
+        },
+		{
+            "include": "#constantAnomMomentDeuteron"
+        },
+        {
+            "include": "#constantAnomMomentElectron"
+        },
+        {
+            "include": "#constantAnomMomentHe3"
+        },
+        {
+            "include": "#constantAnomMomentMuon"
+        },
+        {
+            "include": "#constantAnomMomentProton"
+        },
+        {
+            "include": "#constantCLight"
+        },
+        {
+            "include": "#constantDegrad"
+        },
+        {
+            "include": "#constantDegrees"
+        },
+        {
+            "include": "#constantE"
+        },
+        {
+            "include": "#constantECharge"
+        },
+        {
+            "include": "#constantELog"
+        },
+        {
+            "include": "#constantEmass"
+        },
+        {
+            "include": "#constantFineStructConst"
+        },
+        {
+            "include": "#constantFourpi"
+        },
+        {
+            "include": "#constantHBarPlanck"
+        },
+        {
+            "include": "#constantHPlanck"
+        },
+        {
+            "include": "#constantMDeuteron"
+        },
+        {
+            "include": "#constantMElectron"
+        },
+        {
+            "include": "#constantMMuon"
+        },
+        {
+            "include": "#constantMNeutron"
+        },
+        {
+            "include": "#constantMPion0"
+        },
+        {
+            "include": "#constantMPionCharged"
+        },
+        {
+            "include": "#constantMProton"
+        },
+        {
+            "include": "#constantPi"
+        },
+        {
+            "include": "#constantPmass"
+        },
+        {
+            "include": "#constantRE"
+        },
+        {
+            "include": "#constantRP"
+        },
+        {
+            "include": "#constantRaddeg"
+        },
+        {
+            "include": "#constantSqrt2"
+        },
+        {
+            "include": "#constantTwopi"
         }
 	],
 	"repository": {
@@ -428,10 +515,6 @@
             "name": "keyword.control.bmad",
             "match": "(?i)\\bparticle_start\\b"
         },
-        "keywordPi": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\bpi\\b"
-        },
         "keywordPrint": {
             "name": "keyword.control.bmad",
             "match": "(?i)\\bprint\\b"
@@ -543,6 +626,126 @@
         "speciesProton": {
             "name": "constant.language.species.bmad",
             "match": "(?i)\\bproton\\b"
+        },
+		"constantAnomMomentDeuteron": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\banom_moment_deuteron\\b"
+        },
+        "constantAnomMomentElectron": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\banom_moment_electron\\b"
+        },
+        "constantAnomMomentHe3": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\banom_moment_he3\\b"
+        },
+        "constantAnomMomentMuon": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\banom_moment_muon\\b"
+        },
+        "constantAnomMomentProton": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\banom_moment_proton\\b"
+        },
+        "constantCLight": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bc_light\\b"
+        },
+        "constantDegrad": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bdegrad\\b"
+        },
+        "constantDegrees": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bdegrees\\b"
+        },
+        "constantE": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\be\\b"
+        },
+        "constantECharge": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\be_charge\\b"
+        },
+        "constantELog": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\be_log\\b"
+        },
+        "constantEmass": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bemass\\b"
+        },
+        "constantFineStructConst": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bfine_struct_const\\b"
+        },
+        "constantFourpi": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bfourpi\\b"
+        },
+        "constantHBarPlanck": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bh_bar_planck\\b"
+        },
+        "constantHPlanck": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bh_planck\\b"
+        },
+        "constantMDeuteron": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_deuteron\\b"
+        },
+        "constantMElectron": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_electron\\b"
+        },
+        "constantMMuon": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_muon\\b"
+        },
+        "constantMNeutron": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_neutron\\b"
+        },
+        "constantMPion0": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_pion_0\\b"
+        },
+        "constantMPionCharged": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_pion_charged\\b"
+        },
+        "constantMProton": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bm_proton\\b"
+        },
+        "constantPi": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bpi\\b"
+        },
+        "constantPmass": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bpmass\\b"
+        },
+        "constantRE": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\br_e\\b"
+        },
+        "constantRP": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\br_p\\b"
+        },
+        "constantRaddeg": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\braddeg\\b"
+        },
+        "constantSqrt2": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\bsqrt_2\\b"
+        },
+        "constantTwopi": {
+            "name": "constant.numeric.bmad",
+            "match": "(?i)\\btwopi\\b"
         }
 	},
 	"scopeName": "source.bmad"
