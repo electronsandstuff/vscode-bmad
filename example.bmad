@@ -84,7 +84,7 @@ overlay1: overlay = { kck01, kck02 }, var = {hkick}
 
 !---------------------------------------------------------
 ! Constant definitions
-radians  = pi/180
+radians  = pi/180 ! An inline constant
 l_quad01 = 10
 y = sin(4.5 * pi / c_light * x^2)
 
