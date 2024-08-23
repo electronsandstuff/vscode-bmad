@@ -44,52 +44,7 @@
             "include": "#bmadKeywords"
         },
 		{
-            "include": "#speciesAntiDeuteron"
-        },
-        {
-            "include": "#speciesAntiHelion"
-        },
-        {
-            "include": "#speciesAntiNeutron"
-        },
-        {
-            "include": "#speciesAntimuon"
-        },
-        {
-            "include": "#speciesAntiproton"
-        },
-        {
-            "include": "#speciesDeuteron"
-        },
-        {
-            "include": "#speciesElectron"
-        },
-        {
-            "include": "#speciesHelion"
-        },
-        {
-            "include": "#speciesMuon"
-        },
-        {
-            "include": "#speciesNeutron"
-        },
-        {
-            "include": "#speciesPhoton"
-        },
-        {
-            "include": "#speciesPionMinus"
-        },
-        {
-            "include": "#speciesPionPlus"
-        },
-        {
-            "include": "#speciesPionZero"
-        },
-        {
-            "include": "#speciesPositron"
-        },
-        {
-            "include": "#speciesProton"
+            "include": "#bmadSpecies"
         },
 		{
             "include": "#constantAnomMomentDeuteron"
@@ -519,69 +474,73 @@
                 }
             ]
         },
-		"speciesAntiDeuteron": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\banti_deuteron\\b"
-        },
-        "speciesAntiHelion": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\banti_helion\\b"
-        },
-        "speciesAntiNeutron": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\banti_neutron\\b"
-        },
-        "speciesAntimuon": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bantimuon\\b"
-        },
-        "speciesAntiproton": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bantiproton\\b"
-        },
-        "speciesDeuteron": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bdeuteron\\b"
-        },
-        "speciesElectron": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\belectron\\b"
-        },
-        "speciesHelion": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bhelion\\b"
-        },
-        "speciesMuon": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bmuon\\b"
-        },
-        "speciesNeutron": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bneutron\\b"
-        },
-        "speciesPhoton": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bphoton\\b"
-        },
-        "speciesPionMinus": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)(^|\\s)pion-($|\\s)"
-        },
-        "speciesPionPlus": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)(^|\\s)pion\\+($|\\s)"
-        },
-        "speciesPionZero": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bpion0\\b"
-        },
-        "speciesPositron": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bpositron\\b"
-        },
-        "speciesProton": {
-            "name": "constant.language.species.bmad",
-            "match": "(?i)\\bproton\\b"
+		"bmadSpecies": {
+            "patterns": [
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\banti_deuteron\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\banti_helion\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\banti_neutron\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bantimuon\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bantiproton\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bdeuteron\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\belectron\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bhelion\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bmuon\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bneutron\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bphoton\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)(^|\\s)pion-($|\\s)"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)(^|\\s)pion\\+($|\\s)"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bpion0\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bpositron\\b"
+                },
+                {
+                    "name": "constant.language.species.bmad",
+                    "match": "(?i)\\bproton\\b"
+                }
+            ]
         },
 		"constantAnomMomentDeuteron": {
             "name": "constant.numeric.bmad",
