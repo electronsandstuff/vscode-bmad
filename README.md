@@ -25,6 +25,14 @@ The extension currently supports the following support for Bmad lattice files.
    * Numerical constants
    * Built-in numerical functions
 
+## Screenshots
+
+![Example of syntax highlighting 1](assets/syntax-highlighting-1.png)
+![Example of syntax highlighting 2](assets/syntax-highlighting-2.png)
+![Example of syntax highlighting 3](assets/syntax-highlighting-3.png)
+![Example of syntax highlighting 4](assets/syntax-highlighting-4.png)
+![Example of syntax highlighting 5](assets/syntax-highlighting-5.png)
+
 ## Contributing
 
 If there is a feature you would like to see implemented, or you notice a problem with the current package please leave us a note in the issues tab on Github.
