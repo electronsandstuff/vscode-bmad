@@ -107,12 +107,6 @@
             "include": "#keywordSuperimpose"
         },
         {
-            "include": "#keywordTitle"
-        },
-        {
-            "include": "#keywordUse"
-        },
-        {
             "include": "#keywordUseLocalLatFile"
         },
         {
@@ -575,14 +569,6 @@
         "keywordSuperimpose": {
             "name": "keyword.control.bmad",
             "match": "(?i)\\bsuperimpose\\b"
-        },
-        "keywordTitle": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\btitle\\b"
-        },
-        "keywordUse": {
-            "name": "keyword.control.bmad",
-            "match": "(?i)\\buse\\b"
         },
         "keywordUseLocalLatFile": {
             "name": "keyword.control.bmad",
