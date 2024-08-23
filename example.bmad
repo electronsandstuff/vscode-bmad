@@ -78,8 +78,8 @@ d2.inst: instrument, superimpose, ref=d2.pip01, ref_origin = end, offset = -0.11
 D2.PIP01: PIPE, L=2.83908, aperture=0.5*11.438*0.0254      ! Beam dump, 7106-300; to tip of outside, not inside
 j2.Mar.end: Marker
   j2.Mar.end: Marker  ! Some whitespace
-k3.bnd02: sbend, type = "arc bend", l = 4.1, ! An element definition
-  g = 2*strength, aperture = 0.3
+k3.bnd02: sbend, type = "arc bend", l = 4.1,
+  g = 2*strength, aperture = 0.3  ! An element definition
 overlay1: overlay = { kck01, kck02 }, var = {hkick}
 
 !---------------------------------------------------------

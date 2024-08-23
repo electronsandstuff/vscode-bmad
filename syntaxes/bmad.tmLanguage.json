@@ -81,8 +81,7 @@
 							"name": "string.quoted.double.bmad"
 						},
 						{
-							"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
-							"name": "constant.numeric.bmad"
+							"include": "#numbers"
 						},
 						{
 							"match": "\\bT\\b|\\bF\\b",
@@ -579,31 +578,34 @@
 			"match": "\\s*!.*",
 			"name": "comment.line.exclamation.myLanguage"
 		},
-		"constantDefinition": {
-			"captures": {
-				"1": {
-					"name": "variable.other.constant.bmad"
-				},
-				"2": {
-					"patterns": [
-						{
-							"include": "#mathOperators"
-						},
-						{
-							"include": "#bmadFunctions"
-						},
-						{
-							"include": "#bmadConstants"
-						},
-						{
-							"include": "#numbers"
-						}
-					]
-				}
-			},
-			"match": "^(\\s*[a-zA-Z_][a-zA-Z0-9_]*\\s*)=\\s*([^!\\n]+)",
-			"name": "meta.constant-definition.bmad"
-		},
+"constantDefinition": {
+            "captures": {
+                "1": {
+                    "name": "variable.other.constant.bmad"
+                },
+                "2": {
+                    "patterns": [
+                        {
+                            "include": "#mathOperators"
+                        },
+                        {
+                            "include": "#bmadFunctions"
+                        },
+                        {
+                            "include": "#bmadConstants"
+                        },
+                        {
+                            "include": "#numbers"
+                        },
+                        {
+                            "include": "#strings"
+                        }
+                    ]
+                }
+            },
+            "match": "([a-zA-Z_][a-zA-Z0-9_]*\\s*)=\\s*([^,!\\n]+)",
+            "name": "meta.constant-definition.bmad"
+        },
 		"elementDefinition": {
 			"begin": "(?i)^\\s*((?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*((?<!\\w)(?!\\d)(?!.*##)[A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
 			"beginCaptures": {
@@ -632,11 +634,27 @@
 					"include": "#comments"
 				},
 				{
-					"include": "#attributeAssignments"
+					"include": "#constantDefinition"
 				},
 				{
 					"match": "\\s*,\\s*",
 					"name": "punctuation.separator.parameter.bmad"
+				},
+				{
+					"match": "(?i)\\bsuperimpose\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"include": "#mathOperators"
+				},
+				{
+					"include": "#bmadFunctions"
+				},
+				{
+					"include": "#bmadConstants"
+				},
+				{
+					"include": "#elementNames"
 				}
 			]
 		},
