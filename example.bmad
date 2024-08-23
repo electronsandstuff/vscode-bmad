@@ -121,8 +121,6 @@ root
 slice_lattice
 start_branch_at
 superimpose
-title
-use
 use_local_lat_file
 write_digested
 
