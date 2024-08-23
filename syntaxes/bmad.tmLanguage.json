@@ -51,6 +51,9 @@
         },
 		{
 			"include": "#printStatement"
+		},
+		{
+			"include": "#bmadFunctions"
 		}
 	],
 	"repository": {
@@ -95,6 +98,15 @@
 						},
 						{
 							"include": "#mathOperators"
+						},
+						{
+							"include": "#bmadFunctions"
+						},
+						{
+							"include": "#bmadConstants"
+						},
+						{
+							"include": "#elementNames"
 						}
 					]
 				}
@@ -793,7 +805,147 @@
             "match": "(?i)\\bWiggler\\b"
         }
 	]
-}
+    },
+	"bmadFunctions": {
+		"patterns": [
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\babs\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bacos\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bacosh\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bacoth\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\banomalous_moment_of\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\basin\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\basinh\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\batan\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\batan2\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\batanh\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bceiling\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bcharge_of\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bcos\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bcosh\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bcot\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bcoth\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bexp\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bfactorial\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bfloor\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bint\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\blog\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bmass_of\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bmodulo\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bnint\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bran_gauss\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bran\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bsign\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bsin\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bsinc\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bsinh\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bspecies\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\bsqrt\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\btan\\b"
+			},
+			{
+				"name": "support.function.builtin.bmad",
+				"match": "(?i)\\btanh\\b"
+			}
+		]
+	}
 	},
 	"scopeName": "source.bmad"
 }
