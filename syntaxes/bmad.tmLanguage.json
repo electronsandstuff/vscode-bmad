@@ -360,148 +360,7 @@
 				"2": {
 					"patterns": [
 						{
-							"include": "#elementTypeABMultipole"
-						},
-						{
-							"include": "#elementTypeACKicker"
-						},
-						{
-							"include": "#elementTypeBeamBeam"
-						},
-						{
-							"include": "#elementTypeBeginningEle"
-						},
-						{
-							"include": "#elementTypeConverter"
-						},
-						{
-							"include": "#elementTypeCrabCavity"
-						},
-						{
-							"include": "#elementTypeCustom"
-						},
-						{
-							"include": "#elementTypeDrift"
-						},
-						{
-							"include": "#elementTypeEGun"
-						},
-						{
-							"include": "#elementTypeEcollimator"
-						},
-						{
-							"include": "#elementTypeElSeparator"
-						},
-						{
-							"include": "#elementTypeEMField"
-						},
-						{
-							"include": "#elementTypeFeedback"
-						},
-						{
-							"include": "#elementTypeFiducial"
-						},
-						{
-							"include": "#elementTypeFloorShift"
-						},
-						{
-							"include": "#elementTypeFoil"
-						},
-						{
-							"include": "#elementTypeFork"
-						},
-						{
-							"include": "#elementTypeGKicker"
-						},
-						{
-							"include": "#elementTypeHKicker"
-						},
-						{
-							"include": "#elementTypeHybrid"
-						},
-						{
-							"include": "#elementTypeInstrument"
-						},
-						{
-							"include": "#elementTypeKicker"
-						},
-						{
-							"include": "#elementTypeLcavity"
-						},
-						{
-							"include": "#elementTypeMarker"
-						},
-						{
-							"include": "#elementTypeMask"
-						},
-						{
-							"include": "#elementTypeMatch"
-						},
-						{
-							"include": "#elementTypeMonitor"
-						},
-						{
-							"include": "#elementTypeMultipole"
-						},
-						{
-							"include": "#elementTypeNullEle"
-						},
-						{
-							"include": "#elementTypeOctupole"
-						},
-						{
-							"include": "#elementTypePatch"
-						},
-						{
-							"include": "#elementTypePhotonFork"
-						},
-						{
-							"include": "#elementTypePipe"
-						},
-						{
-							"include": "#elementTypeQuadrupole"
-						},
-						{
-							"include": "#elementTypeRbend"
-						},
-						{
-							"include": "#elementTypeRcollimator"
-						},
-						{
-							"include": "#elementTypeRFbend"
-						},
-						{
-							"include": "#elementTypeRFcavity"
-						},
-						{
-							"include": "#elementTypeSadMult"
-						},
-						{
-							"include": "#elementTypeSbend"
-						},
-						{
-							"include": "#elementTypeSextupole"
-						},
-						{
-							"include": "#elementTypeSolQuad"
-						},
-						{
-							"include": "#elementTypeSolenoid"
-						},
-						{
-							"include": "#elementTypeTaylor"
-						},
-						{
-							"include": "#elementTypeThickMultipole"
-						},
-						{
-							"include": "#elementTypeUndulator"
-						},
-						{
-							"include": "#elementTypeVKicker"
-						},
-						{
-							"include": "#elementTypeWiggler"
+							"include": "#elementTypes"
 						}
 					]
 				}
@@ -925,198 +784,202 @@
 				}
             ]
         },
-		"elementTypeABMultipole": {
+		"elementTypes": {
+		"patterns": [
+		{
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bAB_Multipole\\b"
         },
-        "elementTypeACKicker": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bAC_Kicker\\b"
         },
-        "elementTypeBeamBeam": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bBeamBeam\\b"
         },
-        "elementTypeBeginningEle": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bBeginning_Ele\\b"
         },
-        "elementTypeConverter": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bConverter\\b"
         },
-        "elementTypeCrabCavity": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bCrab_Cavity\\b"
         },
-        "elementTypeCustom": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bCustom\\b"
         },
-        "elementTypeDrift": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bDrift\\b"
         },
-        "elementTypeEGun": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bE_Gun\\b"
         },
-        "elementTypeEcollimator": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bEcollimator\\b"
         },
-        "elementTypeElSeparator": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bElSeparator\\b"
         },
-        "elementTypeEMField": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bEM_Field\\b"
         },
-        "elementTypeFeedback": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bFeedback\\b"
         },
-        "elementTypeFiducial": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bFiducial\\b"
         },
-        "elementTypeFloorShift": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bFloor_Shift\\b"
         },
-        "elementTypeFoil": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bFoil\\b"
         },
-        "elementTypeFork": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bFork\\b"
         },
-        "elementTypeGKicker": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bGKicker\\b"
         },
-        "elementTypeHKicker": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bHKicker\\b"
         },
-        "elementTypeHybrid": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bHybrid\\b"
         },
-        "elementTypeInstrument": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bInstrument\\b"
         },
-        "elementTypeKicker": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bKicker\\b"
         },
-        "elementTypeLcavity": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bLcavity\\b"
         },
-        "elementTypeMarker": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bMarker\\b"
         },
-        "elementTypeMask": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bMask\\b"
         },
-        "elementTypeMatch": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bMatch\\b"
         },
-        "elementTypeMonitor": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bMonitor\\b"
         },
-        "elementTypeMultipole": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bMultipole\\b"
         },
-        "elementTypeNullEle": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bNull_Ele\\b"
         },
-        "elementTypeOctupole": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bOctupole\\b"
         },
-        "elementTypePatch": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bPatch\\b"
         },
-        "elementTypePhotonFork": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bPhoton_Fork\\b"
         },
-        "elementTypePipe": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bPipe\\b"
         },
-        "elementTypeQuadrupole": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bQuadrupole\\b"
         },
-        "elementTypeRbend": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bRbend\\b"
         },
-        "elementTypeRcollimator": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bRcollimator\\b"
         },
-        "elementTypeRFbend": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bRF_bend\\b"
         },
-        "elementTypeRFcavity": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bRFcavity\\b"
         },
-        "elementTypeSadMult": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bSad_Mult\\b"
         },
-        "elementTypeSbend": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bSbend\\b"
         },
-        "elementTypeSextupole": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bSextupole\\b"
         },
-        "elementTypeSolQuad": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bSol_Quad\\b"
         },
-        "elementTypeSolenoid": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bSolenoid\\b"
         },
-        "elementTypeTaylor": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bTaylor\\b"
         },
-        "elementTypeThickMultipole": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bThick_Multipole\\b"
         },
-        "elementTypeUndulator": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bUndulator\\b"
         },
-        "elementTypeVKicker": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bVKicker\\b"
         },
-        "elementTypeWiggler": {
+        {
             "name": "storage.type.element.bmad",
             "match": "(?i)\\bWiggler\\b"
         }
+	]
+}
 	},
 	"scopeName": "source.bmad"
 }
