@@ -164,15 +164,26 @@
 			]
 		},
 		"lineDefinition": {
-			"begin": "(?i)\\s*\\b([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*(line)\\s*(=)\\s*\\(",
+			"begin": "(?i)\\s*\\b(\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\([A-Za-z0-9_,\\s]*\\))?\\s*:\\s*(line)\\s*(=)\\s*\\(",
 			"beginCaptures": {
 				"1": {
 					"name": "variable.element.name.bmad"
 				},
 				"2": {
-					"name": "keyword.control.lineKeyword.bmad"
+					"patterns": [
+						{
+							"include": "#element-names"
+						},
+						{
+							"match": ",",
+							"name": "punctuation.separator.element.bmad"
+						}
+					]
 				},
 				"3": {
+					"name": "keyword.control.lineKeyword.bmad"
+				},
+				"4": {
 					"name": "keyword.operator.assignment.bmad"
 				}
 			},
