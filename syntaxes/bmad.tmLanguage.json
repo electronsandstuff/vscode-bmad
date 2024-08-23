@@ -332,7 +332,7 @@
 					]
 				}
 			},
-			"match": "(?i)^\\s*(call)\\s*,\\s*(file)\\s*=\\s*([\\w./\\\\-]+)\\s*(\\s*(!.*)?$)",
+			"match": "(?i)^\\s*(call)\\s*,\\s*(file(?:name)?)\\s*=\\s*([^!\\n]+)\\s*(\\s*(!.*)?$)",
 			"name": "meta.call-statement.bmad"
 		},
 		"comments": {
