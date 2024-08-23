@@ -32,6 +32,9 @@
 			"name": "constant.numeric.myLanguage"
 		},
 		{
+			"include": "#titleStatement"
+		},
+		{
 			"include": "#numbers"
 		},
 		{
@@ -312,29 +315,33 @@
 			"match": "(?i)\\b([A-Za-z_][A-Za-z0-9_-]*)\\b\\s*=\\s*([^,\\n!]+)",
 			"name": "variable.parameter.assignment.bmad"
 		},
-		"callStatements": {
-			"captures": {
-				"1": {
-					"name": "keyword.control.call.bmad"
+		"callStatements": 
+		{
+            "name": "meta.title-statement.bmad",
+            "begin": "(?i)^\\s*(call)\\s*,",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.call.bmad"
+                },
+                "2": {
+                    "name": "punctuation.separator.comma.bmad"
+                }
+            },
+            "end": "(?<!\\,\\s*)$",
+            "patterns": [
+				{
+					"include": "#comments"
 				},
-				"2": {
+                {
+					"match": "(?i)(?!.*\\b(file|filename)\\b)[^!\\n]+",
+                    "name": "string.unquoted.filename.bmad"
+                },
+				{
+					"match": "(?i)file(?:name)?",
 					"name": "keyword.control.file.bmad"
-				},
-				"3": {
-					"name": "string.unquoted.filepath.bmad"
-				},
-				"4": {
-					"name": "comment.line.exclamation.bmad",
-					"patterns": [
-						{
-							"include": "#comments"
-						}
-					]
 				}
-			},
-			"match": "(?i)^\\s*(call)\\s*,\\s*(file(?:name)?)\\s*=\\s*([^!\\n]+)\\s*(\\s*(!.*)?$)",
-			"name": "meta.call-statement.bmad"
-		},
+            ]
+        },
 		"comments": {
 			"match": "\\s*!.*",
 			"name": "comment.line.exclamation.myLanguage"
@@ -459,6 +466,28 @@
 			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\s*(!.*)?$)",
 			"name": "meta.use-statement.bmad"
 		},
+		"titleStatement": {
+            "name": "meta.title-statement.bmad",
+            "begin": "(?i)^\\s*(title)\\s*,",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.title.bmad"
+                },
+                "2": {
+                    "name": "punctuation.separator.comma.bmad"
+                }
+            },
+            "end": "(?<!\\,\\s*)$",
+            "patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+                    "match": "[^!\\n]+",
+                    "name": "string.unquoted.title.bmad"
+                }
+            ]
+        },
 		"keywordBeam": {
             "name": "keyword.control.bmad",
             "match": "(?i)\\bbeam\\b"

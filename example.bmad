@@ -90,10 +90,14 @@ y = sin(4.5 * pi / c_light * x^2)
 
 !---------------------------------------------------------
 ! Keywords
-call, file = section1/sectoin1.bmad
-call, filename = "$PROJDIR/lat.bmad"
-use, line
-title, I am a title
+call, file = section1/section1.bmad
+call,
+file = section1/section1.bmad ! Inline comment
+call, filename = "$PROJDIR/lat.bmad"  ! A comment
+use, line ! Another comment
+title, I am a title  ! Test comment
+title,
+another title
 beam
 beginning
 calc_reference_orbit
