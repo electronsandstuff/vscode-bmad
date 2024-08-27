@@ -3,29 +3,997 @@
 	"name": "Bmad",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comments"
+		},
+		{
+			"match": "\\b(sub/[\\w/\\.]+)\\b",
+			"name": "string.unquoted.myLanguage"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#assignments"
+		},
+		{
+			"include": "#lineDefinition"
+		},
+		{
+			"include": "#callStatements"
+		},
+		{
+			"include": "#elementDefinition"
+		},
+		{
+			"include": "#useStatements"
+		},
+		{
+			"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
+			"name": "constant.numeric.myLanguage"
+		},
+		{
+			"include": "#titleStatement"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#mathOperators"
+		},
+		{
+			"include": "#bmadKeywords"
+		},
+		{
+			"include": "#bmadSpecies"
+		},
+		{
+			"include": "#bmadConstants"
+		},
+		{
+			"include": "#printStatement"
+		},
+		{
+			"include": "#bmadFunctions"
+		},
+		{
+			"include": "#constantDefinition"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.bmad",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+		"assignments": {
+			"captures": {
+				"1": {
+					"name": "punctuation.whitespace.leading.bmad"
+				},
+				"2": {
+					"name": "variable.element.name.bmad"
+				},
+				"3": {
+					"name": "variable.parameter.brackets.bmad"
+				},
+				"4": {
+					"name": "variable.parameter.attribute.bmad"
+				},
+				"5": {
+					"patterns": [
+						{
+							"match": "\"[^\"]*\"",
+							"name": "string.quoted.double.bmad"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"match": "\\bT\\b|\\bF\\b",
+							"name": "constant.language.boolean.bmad"
+						},
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#mathOperators"
+						},
+						{
+							"include": "#bmadFunctions"
+						},
+						{
+							"include": "#bmadConstants"
+						},
+						{
+							"include": "#elementNames"
+						}
+					]
+				}
+			},
+			"match": "(?i)^(\\s*)([A-Za-z%*:\\#\\\\][A-Za-z0-9._\\#\\\\%*:\\-]*[A-Za-z0-9]?(?<!##))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*=\\s*([^\\n]+)*$",
+			"name": "variable.assignment.element.bmad"
 		},
-		"strings": {
-			"name": "string.quoted.double.bmad",
-			"begin": "\"",
-			"end": "\"",
+		"attributeAssignments": {
+			"captures": {
+				"1": {
+					"name": "variable.parameter.name.bmad"
+				},
+				"2": {
+					"name": "variable.parameter.value.bmad"
+				}
+			},
+			"match": "(?i)\\b([A-Za-z_][A-Za-z0-9_-]*)\\b\\s*=\\s*([^,\\n!]+)",
+			"name": "variable.parameter.assignment.bmad"
+		},
+		"bmadConstants": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.bmad",
-					"match": "\\\\."
+					"match": "(?i)\\banom_moment_deuteron\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\banom_moment_electron\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\banom_moment_he3\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\banom_moment_muon\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\banom_moment_proton\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bc_light\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bdegrad\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bdegrees\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\be\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\be_charge\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\be_log\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bemass\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bfine_struct_const\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bfourpi\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bh_bar_planck\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bh_planck\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_deuteron\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_electron\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_muon\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_neutron\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_pion_0\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_pion_charged\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bm_proton\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bpi\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bpmass\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\br_e\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\br_p\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\braddeg\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\bsqrt_2\\b",
+					"name": "constant.numeric.bmad"
+				},
+				{
+					"match": "(?i)\\btwopi\\b",
+					"name": "constant.numeric.bmad"
 				}
 			]
+		},
+		"bmadFunctions": {
+			"patterns": [
+				{
+					"match": "(?i)\\babs\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bacos\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bacosh\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bacoth\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\banomalous_moment_of\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\basin\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\basinh\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\batan\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\batan2\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\batanh\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bceiling\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bcharge_of\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bcos\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bcosh\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bcot\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bcoth\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bexp\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bfactorial\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bfloor\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bint\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\blog\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bmass_of\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bmodulo\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bnint\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bran_gauss\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bran\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bsign\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bsin\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bsinc\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bsinh\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bspecies\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\bsqrt\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\btan\\b",
+					"name": "support.function.builtin.bmad"
+				},
+				{
+					"match": "(?i)\\btanh\\b",
+					"name": "support.function.builtin.bmad"
+				}
+			]
+		},
+		"bmadKeywords": {
+			"patterns": [
+				{
+					"match": "(?i)\\bbeam\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bbeginning\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bcalc_reference_orbit\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bcall\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bcombine_consecutive_elements\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bdebug_marker\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bend_file\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bexpand_lattice\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bmerge_elements\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bno_digested\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bno_superimpose\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bparameter\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bparser_debug\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bparticle_start\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bredef\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bremove_elements\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\breturn\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\broot\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bslice_lattice\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bstart_branch_at\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bsuperimpose\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\buse_local_lat_file\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"match": "(?i)\\bwrite_digested\\b",
+					"name": "keyword.control.bmad"
+				}
+			]
+		},
+		"bmadSpecies": {
+			"patterns": [
+				{
+					"match": "(?i)\\banti_deuteron\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\banti_helion\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\banti_neutron\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bantimuon\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bantiproton\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bdeuteron\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\belectron\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bhelion\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bmuon\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bneutron\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bphoton\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)(^|\\s)pion-($|\\s)",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)(^|\\s)pion\\+($|\\s)",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bpion0\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bpositron\\b",
+					"name": "constant.language.species.bmad"
+				},
+				{
+					"match": "(?i)\\bproton\\b",
+					"name": "constant.language.species.bmad"
+				}
+			]
+		},
+		"callStatements": {
+			"begin": "(?i)^\\s*(call)\\s*,",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.call.bmad"
+				},
+				"2": {
+					"name": "punctuation.separator.comma.bmad"
+				}
+			},
+			"end": "(?<!\\,\\s*)$",
+			"name": "meta.title-statement.bmad",
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"match": "(?i)(?!\\s|=)(?!.*\\b(file|filename)\\b)[^!\\n]+",
+					"name": "string.unquoted.filename.bmad"
+				},
+				{
+					"match": "(?i)file(?:name)?",
+					"name": "keyword.control.file.bmad"
+				}
+			]
+		},
+		"comments": {
+			"match": "\\s*!.*",
+			"name": "comment.line.exclamation.myLanguage"
+		},
+		"constantDefinition": {
+			"captures": {
+				"1": {
+					"name": "variable.other.constant.bmad"
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#mathOperators"
+						},
+						{
+							"include": "#bmadFunctions"
+						},
+						{
+							"include": "#bmadConstants"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#strings"
+						}
+					]
+				}
+			},
+			"match": "([a-zA-Z_][a-zA-Z0-9_]*\\s*)=\\s*([^,!\\n]+)",
+			"name": "meta.constant-definition.bmad"
+		},
+		"elementDefinition": {
+			"begin": "(?i)^\\s*((?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*((?<!\\w)(?!\\d)(?!.*##)[A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.element.name.bmad"
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#elementTypes"
+						},
+						{
+							"match": "(?i)\\boverlay\\b",
+							"name": "keyword.control.bmad"
+						}
+					]
+				}
+			},
+			"end": "(?<![\\s,])\\s*$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.terminator.end-of-statement.bmad"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#constantDefinition"
+				},
+				{
+					"match": "\\s*,\\s*",
+					"name": "punctuation.separator.parameter.bmad"
+				},
+				{
+					"match": "(?i)\\bsuperimpose\\b",
+					"name": "keyword.control.bmad"
+				},
+				{
+					"include": "#mathOperators"
+				},
+				{
+					"include": "#bmadFunctions"
+				},
+				{
+					"include": "#bmadConstants"
+				},
+				{
+					"include": "#elementNames"
+				}
+			]
+		},
+		"elementNames": {
+			"patterns": [
+				{
+					"match": "(?i)\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##)",
+					"name": "variable.element.name.bmad"
+				}
+			]
+		},
+		"elementTypes": {
+			"patterns": [
+				{
+					"match": "(?i)\\bAB_Multipole\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bAC_Kicker\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bBeamBeam\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bBeginning_Ele\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bConverter\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bCrab_Cavity\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bCustom\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bDrift\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bE_Gun\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bEcollimator\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bElSeparator\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bEM_Field\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bFeedback\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bFiducial\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bFloor_Shift\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bFoil\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bFork\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bGKicker\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bHKicker\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bHybrid\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bInstrument\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bKicker\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bLcavity\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bMarker\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bMask\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bMatch\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bMonitor\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bMultipole\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bNull_Ele\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bOctupole\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bPatch\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bPhoton_Fork\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bPipe\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bQuadrupole\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bRbend\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bRcollimator\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bRF_bend\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bRFcavity\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bSad_Mult\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bSbend\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bSextupole\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bSol_Quad\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bSolenoid\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bTaylor\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bThick_Multipole\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bUndulator\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bVKicker\\b",
+					"name": "storage.type.element.bmad"
+				},
+				{
+					"match": "(?i)\\bWiggler\\b",
+					"name": "storage.type.element.bmad"
+				}
+			]
+		},
+		"lineDefinition": {
+			"begin": "(?i)\\s*\\b(\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\([A-Za-z0-9_,\\s]*\\))?\\s*:\\s*(line)\\s*(=)\\s*\\(",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.element.name.bmad"
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#elementNames"
+						},
+						{
+							"match": ",",
+							"name": "punctuation.separator.element.bmad"
+						}
+					]
+				},
+				"3": {
+					"name": "keyword.control.lineKeyword.bmad"
+				},
+				"4": {
+					"name": "keyword.operator.assignment.bmad"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.group.end.bmad"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#mathOperators"
+				},
+				{
+					"include": "#elementNames"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.element.bmad"
+				}
+			]
+		},
+		"mathOperators": {
+			"match": "[+\\-*/\\^]",
+			"name": "keyword.operator.math.bmad"
+		},
+		"numbers": {
+			"match": "[+-]?\\d*\\.\\d+(?:[eE][+-]?\\d+)?|[+-]?\\d+(?:[eE][+-]?\\d+)?",
+			"name": "constant.numeric.myLanguage"
+		},
+		"printStatement": {
+			"begin": "(?i)^\\s*(print)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.print.bmad"
+				}
+			},
+			"end": "(?=$)",
+			"name": "meta.print-statement.bmad",
+			"patterns": [
+				{
+					"match": "[^!\\n]+",
+					"name": "string.unquoted.print.bmad"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
+		"strings": {
+			"begin": "\"",
+			"end": "\"",
+			"name": "string.quoted.double.bmad",
+			"patterns": [
+				{
+					"match": "\\\\.",
+					"name": "constant.character.escape.bmad"
+				}
+			]
+		},
+		"titleStatement": {
+			"begin": "(?i)^\\s*(title)\\s*,",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.title.bmad"
+				},
+				"2": {
+					"name": "punctuation.separator.comma.bmad"
+				}
+			},
+			"end": "(?<!\\,\\s*)$",
+			"name": "meta.title-statement.bmad",
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"match": "[^!\\n]+",
+					"name": "string.unquoted.title.bmad"
+				}
+			]
+		},
+		"useStatements": {
+			"captures": {
+				"1": {
+					"name": "keyword.control.use.bmad"
+				},
+				"2": {
+					"name": "variable.element.name.bmad"
+				},
+				"3": {
+					"name": "comment.line.exclamation.bmad",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			},
+			"match": "(?i)^\\s*(use)\\s*,\\s*([A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))\\s*(\\s*(!.*)?$)",
+			"name": "meta.use-statement.bmad"
 		}
 	},
 	"scopeName": "source.bmad"

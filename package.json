@@ -1,11 +1,12 @@
 {
   "name": "bmad",
   "displayName": "Bmad",
-  "description": "Bmad and tao language support",
+  "description": "Bmad and Tao language support",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
   },
+  "repository": "https://github.com/electronsandstuff/vscode-bmad",
   "categories": [
     "Programming Languages"
   ],

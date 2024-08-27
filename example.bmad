@@ -1,0 +1,269 @@
+
+!---------------------------------------------------------
+! Element Name Tests
+
+! Test element name with valid characters and length
+valid_element_1_name1234567890.valid#1: marker ! Length: 40 characters, uses all allowed symbols
+
+! Test element name with maximum length
+element_name_with_maximum_length_check1234567890: marker ! Length: 40 characters
+
+! Test element name with a backslash (avoid using, but allowed)
+element_name_with_backslash\: marker ! Contains backslash
+
+! Test element name with a period (avoid using, but allowed)
+element_name.with.period: marker ! Contains period
+
+! Test element name with a hash mark (avoid using, but allowed)
+element_name_with_hash#: marker ! Contains hash mark
+
+! Test element name with a combination of backslash, period, and hash mark (avoid using, but allowed)
+element\name.with#all: marker ! Combination of backslash, period, and hash mark
+
+! Invalid test: Element name starting with a digit
+1_invalid_element_name: marker ! Starts with a digit, should not be allowed
+
+! Invalid test: Element name containing double hash marks
+invalid_element##name: marker ! Contains double hash marks, should not be allowed
+
+! Invalid test: Element name with a reserved keyword
+use: marker ! Reserved keyword, should not be allowed
+
+!---------------------------------------------------------
+! Attribute Assignment
+*[aperture] = 0.0 ! Match all elements.
+aline[geometry] = open
+aline[live_branch] = f
+aline[particle] = electron
+BEGINNING[ALPHA_B] = -0.65700189
+beginning[eta_x]   =  0
+BND02[g] = exp(0.2) / 15.5 + 10
+J1.PAT01[X_PITCH] = +2.61799386281228785E-001
+parameter[absolute_time_tracking] = F  ! Another comment at the end of the assignment
+parameter[e_tot] = 6e6                 ! A comment at the end of the assignment
+Q%1[k1] = 12.1
+qua01[gradient] =   42.0e2 * 3.0 / jio[l]
+qua02[gradient] =   42.0e2 * (2 - 0.35)
+quadrupole::*[k1] = 2.2
+quadrupole::c0%[k1] = 3.15
+quadrupole::QUA*[k1] = 12.1
+s%z[k2] = %[k2] + 10 * ran_gauss()
+
+!---------------------------------------------------------
+! Lines
+lat: line=(
+ as, energize246, as.end,
+ xy.segment1, as.converge.path, xy.segment2, t8_group, zzb, t9_group, t9_bridge, cs.combine.unit, cs.combine.segment,
+ as, energize310, as.end,
+ xy.segment1, as.converge.path, xy.segment2, t4_group, zzb, t5_group, t9_bridge, cs.combine, cs.combine.segment)
+  
+  AA.short: line = (  ! Some whitespace
+  AA.PAT01,
+  AA.mar.beg,  
+  C2.pip01)
+
+AA.short: line = (  ! Some
+  AA.PAT01,         ! Comments
+  AA.mar.beg,       ! In The
+  C2.pip01)         ! Line
+
+AA.short: line = (AA.PAT01, AA.mar.beg, C2.pip01)  ! End of line comment
+line_with_args(a, b): line = (a, PIP01, PIP02, b)  ! Line with arguments
+line: line = (5*a)
+
+!---------------------------------------------------------
+! Element definitions
+d2.inst: instrument, superimpose, ref=d2.pip01, ref_origin = end, offset = -0.116303
+D2.PIP01: PIPE, L=2.83908, aperture=0.5*11.438*0.0254      ! Beam dump, 7106-300; to tip of outside, not inside
+j2.Mar.end: Marker
+  j2.Mar.end: Marker  ! Some whitespace
+k3.bnd02: sbend, type = "arc bend", l = 4.1,
+  g = 2*strength, aperture = 0.3  ! An element definition
+overlay1: overlay = { kck01, kck02 }, var = {hkick}
+
+!---------------------------------------------------------
+! Constant definitions
+radians  = pi/180 ! An inline constant
+l_quad01 = 10
+y = sin(4.5 * pi / c_light * x^2)
+
+!---------------------------------------------------------
+! Keywords
+call, file = section1/section1.bmad
+call,
+file = section1/section1.bmad ! Inline comment
+call, filename = "$PROJDIR/lat.bmad"  ! A comment
+use, line ! Another comment
+title, I am a title  ! Test comment
+title,
+another title
+beam
+beginning
+calc_reference_orbit
+call
+combine_consecutive_elements
+debug_marker
+end_file
+expand_lattice
+merge_elements
+no_digested
+no_superimpose
+parameter
+parser_debug
+particle_start
+pi
+print
+redef
+remove_elements
+return
+root
+slice_lattice
+start_branch_at
+superimpose
+use_local_lat_file
+write_digested
+
+!---------------------------------------------------------
+! Particle Species
+anti_deuteron
+anti_helion
+anti_neutron
+antimuon
+antiproton
+deuteron
+electron
+helion
+muon
+neutron
+photon
+pion-
+pion+
+pion0
+positron
+proton
+
+!---------------------------------------------------------
+! Arithmetic Constants
+anom_moment_deuteron
+anom_moment_electron
+anom_moment_he3
+anom_moment_muon
+anom_moment_proton
+c_light
+degrad
+degrees
+e
+e_charge
+e_log
+emass
+fine_struct_const
+fourpi
+h_bar_planck
+h_planck
+m_deuteron
+m_electron
+m_muon
+m_neutron
+m_pion_0
+m_pion_charged
+m_proton
+pi
+pmass
+r_e
+r_p
+raddeg
+sqrt_2
+twopi
+
+!---------------------------------------------------------
+! Intrinsic Functions
+abs(x)
+acos(x)
+acosh(x)
+acoth(x)
+anomalous_moment_of(A)
+asin(x)
+asinh(x)
+atan(x)
+atan2(y, x) 
+atanh(x)
+ceiling(x)
+charge_of(A)
+cos(x)
+cosh(x)
+cot(x)
+coth(x)
+exp(x)
+factorial(n)
+floor(x)
+int(x) 
+log(x)
+mass_of(A)
+modulo(a, p)
+nint(x)
+ran_gauss()
+ran_gauss(x)
+ran()
+sign(x)
+sin(x)
+sinc(x)
+sinh(x)
+species(A)
+sqrt(x)
+tan(x)
+tanh(x)
+
+!---------------------------------------------------------
+! Print statement
+print I am a print statement  ! A comment
+
+!---------------------------------------------------------
+! Element Types
+ele: AB_Multipole 
+ele: AC_Kicker 
+ele: BeamBeam 
+ele: Beginning_Ele 
+ele: Converter 
+ele: Crab_Cavity 
+ele: Custom
+ele: Drift
+ele: E_Gun
+ele: Ecollimator
+ele: ElSeparator
+ele: EM_Field
+ele: Feedback
+ele: Fiducial 
+ele: Floor_Shift
+ele: Foil
+ele: Fork
+ele: GKicker
+ele: HKicker
+ele: Hybrid
+ele: Instrument
+ele: Kicker
+ele: Lcavity
+ele: Marker
+ele: Mask 
+ele: Match 
+ele: Monitor 
+ele: Multipole 
+ele: Null_Ele 
+ele: Octupole 
+ele: Patch 
+ele: Photon_Fork 
+ele: Pipe 
+ele: Quadrupole 
+ele: Rbend 
+ele: Rcollimator
+ele: RF_bend 
+ele: RFcavity 
+ele: Sad_Mult 
+ele: Sbend
+ele: Sextupole 
+ele: Sol_Quad 
+ele: Solenoid 
+ele: Taylor 
+ele: Thick_Multipole 
+ele: Undulator 
+ele: VKicker 
+ele: Wiggler
