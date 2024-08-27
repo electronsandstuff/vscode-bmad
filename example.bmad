@@ -29,7 +29,6 @@ invalid_element##name: marker ! Contains double hash marks, should not be allowe
 ! Invalid test: Element name with a reserved keyword
 use: marker ! Reserved keyword, should not be allowed
 
-
 !---------------------------------------------------------
 ! Attribute Assignment
 *[aperture] = 0.0 ! Match all elements.

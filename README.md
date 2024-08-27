@@ -6,7 +6,7 @@ Future work will focus on also covering scripts and configuration files for tao.
 
 ## Features
 
-The extension currently supports the following support for Bmad lattice files.
+The extension currently supports the following features for Bmad lattice files.
  * Support for VSCode bulk commenting
  * Syntax highlighting for the following entities
    * Comments
@@ -36,5 +36,5 @@ The extension currently supports the following support for Bmad lattice files.
 ## Contributing
 
 If there is a feature you would like to see implemented, or you notice a problem with the current package please leave us a note in the issues tab on Github.
-Please leave as much details as possible and screenshots if possible (especially if it is a syntax highlighting problem).
+Please leave as much detail as possible and screenshots where appropriate (especially if it is a syntax highlighting problem).
 All feedback is appreciated!
