@@ -32,6 +32,7 @@ use: marker ! Reserved keyword, should not be allowed
 !---------------------------------------------------------
 ! Attribute Assignment
 *[aperture] = 0.0 ! Match all elements.
+QUA*[aperture] = 0.0 ! Match quads
 aline[geometry] = open
 aline[live_branch] = f
 aline[particle] = electron
@@ -46,7 +47,7 @@ qua01[gradient] =   42.0e2 * 3.0 / jio[l]
 qua02[gradient] =   42.0e2 * (2 - 0.35)
 quadrupole::*[k1] = 2.2
 quadrupole::c0%[k1] = 3.15
-quadrupole::QUA*[k1] = 12.1
+Quadrupole::QUA*[k1] = 12.1
 s%z[k2] = %[k2] + 10 * ran_gauss()
 
 !---------------------------------------------------------
@@ -85,7 +86,11 @@ overlay1: overlay = { kck01, kck02 }, var = {hkick}
 ! Constant definitions
 radians  = pi/180 ! An inline constant
 l_quad01 = 10
+x = 1e-3
 y = sin(4.5 * pi / c_light * x^2)
+G1.ANGLE1 = pi / 2
+G1.ANGLE2 = G1.ANGLE1 / 2
+G1.ANGLE3 = G1.BEN02[g]
 
 !---------------------------------------------------------
 ! Keywords

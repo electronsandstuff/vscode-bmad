@@ -13,7 +13,10 @@
 			"include": "#strings"
 		},
 		{
-			"include": "#assignments"
+			"include": "#elementAttributeAssignments"
+		},
+		{
+			"include": "#elementTypeAttributeAssignments"
 		},
 		{
 			"include": "#lineDefinition"
@@ -60,66 +63,6 @@
 		}
 	],
 	"repository": {
-		"assignments": {
-			"captures": {
-				"1": {
-					"name": "punctuation.whitespace.leading.bmad"
-				},
-				"2": {
-					"name": "variable.element.name.bmad"
-				},
-				"3": {
-					"name": "variable.parameter.brackets.bmad"
-				},
-				"4": {
-					"name": "variable.parameter.attribute.bmad"
-				},
-				"5": {
-					"patterns": [
-						{
-							"match": "\"[^\"]*\"",
-							"name": "string.quoted.double.bmad"
-						},
-						{
-							"include": "#numbers"
-						},
-						{
-							"match": "\\bT\\b|\\bF\\b",
-							"name": "constant.language.boolean.bmad"
-						},
-						{
-							"include": "#comments"
-						},
-						{
-							"include": "#mathOperators"
-						},
-						{
-							"include": "#bmadFunctions"
-						},
-						{
-							"include": "#bmadConstants"
-						},
-						{
-							"include": "#elementNames"
-						}
-					]
-				}
-			},
-			"match": "(?i)^(\\s*)([A-Za-z%*:\\#\\\\][A-Za-z0-9._\\#\\\\%*:\\-]*[A-Za-z0-9]?(?<!##))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*=\\s*([^\\n]+)*$",
-			"name": "variable.assignment.element.bmad"
-		},
-		"attributeAssignments": {
-			"captures": {
-				"1": {
-					"name": "variable.parameter.name.bmad"
-				},
-				"2": {
-					"name": "variable.parameter.value.bmad"
-				}
-			},
-			"match": "(?i)\\b([A-Za-z_][A-Za-z0-9_-]*)\\b\\s*=\\s*([^,\\n!]+)",
-			"name": "variable.parameter.assignment.bmad"
-		},
 		"bmadConstants": {
 			"patterns": [
 				{
@@ -599,12 +542,98 @@
 						},
 						{
 							"include": "#strings"
+						},
+						{
+							"include": "#constantNames"
 						}
 					]
 				}
 			},
-			"match": "([a-zA-Z_][a-zA-Z0-9_]*\\s*)=\\s*([^,!\\n]+)",
+			"match": "(?i)(\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))\\s*=\\s*([^,!\\n]+)",
 			"name": "meta.constant-definition.bmad"
+		},
+		"constantNames": {
+			"patterns": [
+				{
+					"match": "(?i)\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##)",
+					"name": "variable.other.constant.bmad"
+				}
+			]
+		},
+		"elementAttributeAssignments": {
+			"captures": {
+				"1": {
+					"name": "punctuation.whitespace.leading.bmad"
+				},
+				"2": {
+					"patterns": [
+						{
+							"match": "(?i)\\bbeginning\\b",
+							"name": "keyword.control.bmad"
+						},
+						{
+							"match": "(?i)\\bparameter\\b",
+							"name": "keyword.control.bmad"
+						},
+						{
+							"match": "\\*",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"include": "#elementNames"
+						}
+					]
+				},
+				"3": {
+					"name": "variable.parameter.brackets.bmad"
+				},
+				"4": {
+					"name": "variable.parameter.attribute.bmad"
+				},
+				"5": {
+					"name": "keyword.operator.assignment.bmad"
+				},
+				"6": {
+					"patterns": [
+						{
+							"match": "\"[^\"]*\"",
+							"name": "string.quoted.double.bmad"
+						},
+						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"match": "\\bT\\b|\\bF\\b",
+							"name": "constant.language.boolean.bmad"
+						},
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#mathOperators"
+						},
+						{
+							"include": "#bmadFunctions"
+						},
+						{
+							"include": "#bmadConstants"
+						},
+						{
+							"include": "#elementNames"
+						}
+					]
+				}
+			},
+			"match": "(?i)^(\\s*)(\\*|(?:\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*%?\\*?[A-Z0-9._#\\\\]*))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*(=)\\s*([^\\n]+)*$",
+			"name": "variable.assignment.element.bmad"
 		},
 		"elementDefinition": {
 			"begin": "(?i)^\\s*((?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|beginning|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parameter|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))\\s*:\\s*((?<!\\w)(?!\\d)(?!.*##)[A-Z][A-Z0-9._\\#\\\\]*[A-Z0-9]?(?<!##))",
@@ -669,6 +698,73 @@
 					"name": "variable.element.name.bmad"
 				}
 			]
+		},
+		"elementTypeAttributeAssignments": {
+			"captures": {
+				"1": {
+					"name": "storage.type.element.bmad"
+				},
+				"2": {
+					"name": "punctuation.separator.parameter.bmad"
+				},
+				"3": {
+					"patterns": [
+						{
+							"match": "\\*",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"include": "#elementNames"
+						}
+					]
+				},
+				"4": {
+					"name": "variable.parameter.brackets.bmad"
+				},
+				"5": {
+					"name": "keyword.operator.assignment.bmad"
+				},
+				"6": {
+					"patterns": [
+						{
+							"match": "\"[^\"]*\"",
+							"name": "string.quoted.double.bmad"
+						},
+						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"match": "\\bT\\b|\\bF\\b",
+							"name": "constant.language.boolean.bmad"
+						},
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#mathOperators"
+						},
+						{
+							"include": "#bmadFunctions"
+						},
+						{
+							"include": "#bmadConstants"
+						},
+						{
+							"include": "#elementNames"
+						}
+					]
+				}
+			},
+			"match": "(?i)^\\s*(\\b(?:AB_Multipole|AC_Kicker|BeamBeam|Beginning_Ele|Converter|Crab_Cavity|Custom|Drift|E_Gun|Ecollimator|ElSeparator|EM_Field|Feedback|Fiducial|Floor_Shift|Foil|Fork|GKicker|HKicker|Hybrid|Instrument|Kicker|Lcavity|Marker|Mask|Match|Monitor|Multipole|Null_Ele|Octupole|Patch|Photon_Fork|Pipe|Quadrupole|Rbend|Rcollimator|RF_bend|RFcavity|Sad_Mult|Sbend|Sextupole|Sol_Quad|Solenoid|Taylor|Thick_Multipole|Undulator|VKicker|Wiggler)\\b)(::)(%|\\*|[A-Z][A-Z0-9._#\\\\]*%?\\*?[A-Z0-9._#\\\\]*)\\[([A-Za-z_][A-Za-z0-9_-]*)\\]\\s*(=)\\s*([^\\n]+)*$",
+			"name": "variable.assignment.elementType.bmad"
 		},
 		"elementTypes": {
 			"patterns": [
