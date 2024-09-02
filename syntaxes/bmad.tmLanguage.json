@@ -696,7 +696,15 @@
 					"name": "punctuation.separator.parameter.bmad"
 				},
 				"3": {
-					"name": "variable.element.name.bmad"
+					"patterns": [
+						{
+							"match": "\\*",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
+							"include": "#elementNames"
+						}
+					]
 				},
 				"4": {
 					"name": "variable.parameter.brackets.bmad"
