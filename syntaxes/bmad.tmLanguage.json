@@ -580,6 +580,10 @@
 							"name": "keyword.operator.wildcard.bmad"
 						},
 						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
 							"include": "#elementNames"
 						}
 					]
@@ -598,6 +602,10 @@
 						{
 							"match": "\"[^\"]*\"",
 							"name": "string.quoted.double.bmad"
+						},
+						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
 						},
 						{
 							"include": "#numbers"
@@ -624,7 +632,7 @@
 					]
 				}
 			},
-			"match": "(?i)^(\\s*)(\\*|(?:\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*\\*?[A-Z0-9._#\\\\]*))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*(=)\\s*([^\\n]+)*$",
+			"match": "(?i)^(\\s*)(\\*|(?:\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*%?\\*?[A-Z0-9._#\\\\]*))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*(=)\\s*([^\\n]+)*$",
 			"name": "variable.assignment.element.bmad"
 		},
 		"elementDefinition": {
@@ -706,6 +714,10 @@
 							"name": "keyword.operator.wildcard.bmad"
 						},
 						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
+						},
+						{
 							"include": "#elementNames"
 						}
 					]
@@ -721,6 +733,10 @@
 						{
 							"match": "\"[^\"]*\"",
 							"name": "string.quoted.double.bmad"
+						},
+						{
+							"match": "%",
+							"name": "keyword.operator.wildcard.bmad"
 						},
 						{
 							"include": "#numbers"
@@ -747,7 +763,7 @@
 					]
 				}
 			},
-			"match": "(?i)^\\s*(\\b(?:AB_Multipole|AC_Kicker|BeamBeam|Beginning_Ele|Converter|Crab_Cavity|Custom|Drift|E_Gun|Ecollimator|ElSeparator|EM_Field|Feedback|Fiducial|Floor_Shift|Foil|Fork|GKicker|HKicker|Hybrid|Instrument|Kicker|Lcavity|Marker|Mask|Match|Monitor|Multipole|Null_Ele|Octupole|Patch|Photon_Fork|Pipe|Quadrupole|Rbend|Rcollimator|RF_bend|RFcavity|Sad_Mult|Sbend|Sextupole|Sol_Quad|Solenoid|Taylor|Thick_Multipole|Undulator|VKicker|Wiggler)\\b)(::)(\\*|[A-Z][A-Z0-9._#\\\\]*\\*?[A-Z0-9._#\\\\]*)\\[([A-Za-z_][A-Za-z0-9_-]*)\\]\\s*(=)\\s*([^\\n]+)*$",
+			"match": "(?i)^\\s*(\\b(?:AB_Multipole|AC_Kicker|BeamBeam|Beginning_Ele|Converter|Crab_Cavity|Custom|Drift|E_Gun|Ecollimator|ElSeparator|EM_Field|Feedback|Fiducial|Floor_Shift|Foil|Fork|GKicker|HKicker|Hybrid|Instrument|Kicker|Lcavity|Marker|Mask|Match|Monitor|Multipole|Null_Ele|Octupole|Patch|Photon_Fork|Pipe|Quadrupole|Rbend|Rcollimator|RF_bend|RFcavity|Sad_Mult|Sbend|Sextupole|Sol_Quad|Solenoid|Taylor|Thick_Multipole|Undulator|VKicker|Wiggler)\\b)(::)(%|\\*|[A-Z][A-Z0-9._#\\\\]*%?\\*?[A-Z0-9._#\\\\]*)\\[([A-Za-z_][A-Za-z0-9_-]*)\\]\\s*(=)\\s*([^\\n]+)*$",
 			"name": "variable.assignment.elementType.bmad"
 		},
 		"elementTypes": {
