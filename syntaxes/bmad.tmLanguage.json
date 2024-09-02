@@ -624,7 +624,7 @@
 					]
 				}
 			},
-			"match": "(?i)^(\\s*)(\\*|\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*[A-Z0-9]?(?<!##))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*(=)\\s*([^\\n]+)*$",
+			"match": "(?i)^(\\s*)(\\*|(?:\\b(?<!\\w)(?!\\d)(?!.*##)(?!\\b(?:beam|call|calc_reference_orbit|combine_consecutive_elements|debug_marker|end_file|expand_lattice|merge_elements|no_digested|no_superimpose|parser_debug|particle_start|print|redef|remove_elements|return|root|slice_lattice|start_branch_at|superimpose|title|use|use_local_lat_file|write_digested)\\b)[A-Z][A-Z0-9._#\\\\]*\\*?[A-Z0-9._#\\\\]*))(\\[([A-Za-z_][A-Za-z0-9_-]*)\\])\\s*(=)\\s*([^\\n]+)*$",
 			"name": "variable.assignment.element.bmad"
 		},
 		"elementDefinition": {

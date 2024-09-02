@@ -32,6 +32,7 @@ use: marker ! Reserved keyword, should not be allowed
 !---------------------------------------------------------
 ! Attribute Assignment
 *[aperture] = 0.0 ! Match all elements.
+QUA*[aperture] = 0.0 ! Match quads
 aline[geometry] = open
 aline[live_branch] = f
 aline[particle] = electron
