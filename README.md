@@ -5,7 +5,7 @@ Currently, syntax highlighting is supported for Bmad lattice files.
 Future work will focus on also covering scripts and configuration files for tao.
 
 ## Installation
-Clone the repo into your plugins folder.
+Clone the repo or copy release into your plugins folder.
 
 #### On Linux/Mac
 Run the following commands and restart VSCode.
