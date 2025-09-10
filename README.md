@@ -4,6 +4,19 @@ This extension provides language support for [Bmad](https://github.com/bmad-sim/
 Currently, syntax highlighting is supported for Bmad lattice files.
 Future work will focus on also covering scripts and configuration files for tao.
 
+## Installation
+Clone the repo into your plugins folder.
+
+#### On Linux/Mac
+Run the following commands and restart VSCode.
+```
+cd $HOME/.vscode/extensions
+git clone https://github.com/electronsandstuff/vscode-bmad
+```
+
+#### On Windows
+Copy the repo into `%USERPROFILE%\.vscode\extensions` and restart VSCode.
+
 ## Features
 
 The extension currently supports the following features for Bmad lattice files.
